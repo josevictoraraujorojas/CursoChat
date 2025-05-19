@@ -8,7 +8,7 @@ stompClient.onConnect = (frame) => {
     determinaConexao(true); // Atualiza a interface para mostrar que está conectado
     console.log('Conectado: ' + frame);
 
-    // Inscreve-se no tópico '/topics/livechat' para receber mensagens em tempo real
+    // Inscreve-se no tópico '/topicos/estudantes' para receber mensagens em tempo real
     stompClient.subscribe('/topicos/estudantes', (mensagemJSON) => {
         // Atualiza o chat com a nova mensagem recebida
         atalizarChat(JSON.parse(mensagemJSON.body));
@@ -34,7 +34,7 @@ function determinaConexao(connected) {
     if (connected) {
         $("#conversas").show(); // Mostra a área de conversas
     } else {
-        $("#conversas").hide(); // Aqui deveria ser .hide() para ocultar quando desconectado
+        $("#conversas").hide(); //Ocultar quando desconectado
     }
 }
 

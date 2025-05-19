@@ -10,7 +10,7 @@ import org.springframework.stereotype.Controller;
 public class ChatTempoRealController {
     // Define que este método será executado sempre que uma mensagem for enviada para o destino "/estudantes/new-message"
     @MessageMapping("/novaMensagem")
-    // Define que o retorno deste método será enviado para todos os assinantes do tópico "/topics/livechat"
+    // Define que o retorno deste método será enviado para todos os assinantes do tópico "/topicos/estudantes"
     @SendTo("/topicos/estudantes")
     public MensagemVO newMessage(Mensagem mensagem) {
         // Cria um novo objeto MensagemVO com os dados recebidos

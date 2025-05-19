@@ -1,6 +1,6 @@
 // Criação do cliente STOMP com a URL do WebSocket
 const stompClient = new StompJs.Client({
-    brokerURL: 'ws://' + window.location.host + '/buildrun-livechat-websocket'
+    brokerURL: 'ws://' + window.location.host + '/ChatTempoReal'
 });
 
 // Função chamada quando a conexão com o WebSocket for estabelecida com sucesso
@@ -9,7 +9,7 @@ stompClient.onConnect = (frame) => {
     console.log('Conectado: ' + frame);
 
     // Inscreve-se no tópico '/topics/livechat' para receber mensagens em tempo real
-    stompClient.subscribe('/topics/livechat', (mensagemJSON) => {
+    stompClient.subscribe('/topicos/estudantes', (mensagemJSON) => {
         // Atualiza o chat com a nova mensagem recebida
         atalizarChat(JSON.parse(mensagemJSON.body));
     });
@@ -56,7 +56,7 @@ function enviarMensagem() {
 
     // Publica a mensagem no destino "/app/new-message"
     stompClient.publish({
-        destination: "/app/new-message",
+        destination: "/estudantes/novaMensagem",
         body: JSON.stringify({
             'usuario': $("#usuario").val(),
             'conteudo': $("#mensagem").val(),

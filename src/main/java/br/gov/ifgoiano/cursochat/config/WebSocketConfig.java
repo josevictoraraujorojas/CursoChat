@@ -16,11 +16,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry registry) {
         // Define um broker simples que usará o prefixo /topics para envio de mensagens aos assinantes
-        registry.enableSimpleBroker("/topics");
+        registry.enableSimpleBroker("/topicos");
 
         // Define o prefixo /app como destino das mensagens enviadas pelos clientes
         // As mensagens enviadas para /app serão roteadas para os métodos @MessageMapping do servidor
-        registry.setApplicationDestinationPrefixes("/app");
+        registry.setApplicationDestinationPrefixes("/estudantes");
     }
 
     // Registra os endpoints STOMP acessíveis via WebSocket pelos clientes
@@ -28,7 +28,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     public void registerStompEndpoints(StompEndpointRegistry registry) {
         // Define o endpoint onde os clientes irão se conectar com WebSocket
         // Exemplo: ws://localhost:8080/buildrun-livechat-websocket
-        registry.addEndpoint("/buildrun-livechat-websocket");
+        registry.addEndpoint("/ChatTempoReal");
     }
 }
 

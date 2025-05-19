@@ -8,11 +8,10 @@ import org.springframework.stereotype.Controller;
 
 @Controller
 public class ChatTempoRealController {
-    // Define que este método será executado sempre que uma mensagem for enviada para o destino "/app/new-message"
-    @MessageMapping("/new-message")
-
+    // Define que este método será executado sempre que uma mensagem for enviada para o destino "/estudantes/new-message"
+    @MessageMapping("/novaMensagem")
     // Define que o retorno deste método será enviado para todos os assinantes do tópico "/topics/livechat"
-    @SendTo("/topics/livechat")
+    @SendTo("/topicos/estudantes")
     public MensagemVO newMessage(Mensagem mensagem) {
         // Cria um novo objeto MensagemVO com os dados recebidos
         // Esse objeto será retornado aos clientes conectados

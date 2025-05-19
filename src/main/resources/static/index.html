@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Define a codificação dos caracteres para UTF-8 -->
+    <meta charset="UTF-8">
+
+    <!-- Define o comportamento responsivo da página para diferentes dispositivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Título exibido na aba do navegador -->
+    <title>Criar e Executar</title>
+
+    <!-- Importa o arquivo CSS principal da aplicação -->
+    <link href="/main.css" rel="stylesheet">
+
+    <!-- Importa o jQuery para facilitar manipulação do DOM e eventos -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+
+    <!-- Importa a biblioteca STOMP.js para comunicação via WebSockets -->
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+
+    <!-- Importa o script principal da aplicação (onde está a lógica JS do chat) -->
+    <script src="/app.js"></script>
+</head>
+<body>
+
+<!-- Mensagem exibida caso o JavaScript esteja desativado no navegador -->
+<noscript>
+    <h2 style="color: #ff0000">
+        Parece que seu navegador não suporta Javascript! WebSocket depende de Javascript ativado.
+        Por favor, ative o Javascript e recarregue esta página!
+    </h2>
+</noscript>
+
+<!-- Container principal da aplicação -->
+<div>
+
+    <!-- Cabeçalho com título do sistema -->
+    <div>
+        <div>
+            <h2 style="font-weight: bold; color: #ffffff;">Criar e Executar</h2>
+        </div>
+    </div>
+
+    <!-- Formulário para entrada do nome do usuário e da mensagem -->
+    <div>
+        <div>
+            <form>
+                <div>
+                    <label for="usuario">Nome Usuario:</label>
+                    <input type="text" id="usuario" placeholder="Entre com o seu nome de usuario">
+                </div>
+                <div class="form-group">
+                    <label for="mensagem">Mensagem:</label>
+                    <input type="text" id="mensagem" placeholder="Coloque sua mensagem">
+                </div>
+            </form>
+        </div>
+
+        <!-- Botões de controle de conexão com o WebSocket -->
+        <div>
+            <button id="conectar">Conectar</button>
+            <button id="desconectar" disabled="disabled">Desconectar</button>
+        </div>
+    </div>
+
+    <!-- Botão para enviar mensagens -->
+    <div>
+        <div>
+            <form>
+                <button id="enviar" type="submit">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Tabela onde as mensagens recebidas serão exibidas dinamicamente -->
+    <div>
+        <div>
+            <table id="conversas">
+                <thead>
+                <tr>
+                    <th>Chat em Tempo Real</th>
+                </tr>
+                </thead>
+                <tbody id="chatTempoReal">
+                <!-- As mensagens novas serão inseridas aqui via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

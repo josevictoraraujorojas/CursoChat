@@ -1,0 +1,15 @@
+body {
+    background-color: #171831;
+    color: white;
+    font-family: 'Arial', sans-serif;
+}
+
+h2 {
+    color: #6968d4;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#chatTempoReal {
+    font-size: 16px;
+}
+
